@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Phone, Sun, Moon, Tv } from "lucide-react";
+import { Phone, Sun, Moon, Tv } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { NAV, SITE } from "@/lib/site";
 

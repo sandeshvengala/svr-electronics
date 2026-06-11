@@ -10,7 +10,7 @@ import workshop from "@/assets/workshop.jpg";
 import parts from "@/assets/parts.jpg";
 import { AnimatedCounter } from "@/components/site/AnimatedCounter";
 import { Reveal } from "@/components/site/PageShell";
-import { BRANDS, SITE } from "@/lib/site";
+import { SITE } from "@/lib/site";
 
 
 function Home() {
