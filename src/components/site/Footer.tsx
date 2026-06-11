@@ -63,6 +63,7 @@ export function Footer() {
             </p>
             <div className="mt-5 space-y-2 text-sm">
               <a href={SITE.phoneHref} className="flex items-center gap-2 text-muted-foreground hover:text-foreground"><Phone className="size-4 text-[color:var(--ember)]" />{SITE.phone}</a>
+              <a href={SITE.phoneHref1} className="flex items-center gap-2 text-muted-foreground hover:text-foreground"><Phone className="size-4 text-[color:var(--ember)]" />{SITE.phone1}</a>
               <a href={SITE.emailHref} className="flex items-center gap-2 text-muted-foreground hover:text-foreground"><Mail className="size-4 text-[color:var(--ember)]" />{SITE.email}</a>
               <div className="flex items-start gap-2 text-muted-foreground"><MapPin className="size-4 text-[color:var(--ember)] mt-0.5" />{SITE.address}</div>
             </div>

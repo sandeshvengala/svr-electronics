@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 import { Phone, Mail, MapPin, MessageSquare, Send } from "lucide-react";
 import { SITE } from "@/lib/site";
 import { motion } from "framer-motion";
+import { BRANDS } from "@/lib/site";
 
 ({
   head: () => ({
@@ -16,16 +17,52 @@ import { motion } from "framer-motion";
   component: Contact,
 });
 
-type FormVals = { name: string; email: string; phone: string; message: string };
+type FormVals = {
+  name: string;
+  phone: string;
+  email: string;
+  brand: string;
+  model: string;
+  issue: string;
+  service: string;
+  address: string;
+};
 
 function Contact() {
   const { register, handleSubmit, reset, formState: { isSubmitting, errors } } = useForm<FormVals>();
   const onSubmit = async (v: FormVals) => {
-    await new Promise(r => setTimeout(r, 800));
-    toast.success("Message sent — we'll reply shortly.");
-    reset();
-    console.log("contact form", v);
-  };
+  const message = `
+📺 *SVR ELECTRONICS - NEW SERVICE REQUEST*
+
+👤 Full Name: ${v.name}
+
+📞 Phone: ${v.phone}
+
+📧 Email: ${v.email || "Not Provided"}
+
+📺 TV Brand: ${v.brand}
+
+📏 Model / Size: ${v.model || "Not Provided"}
+
+🛠 Service Type: ${v.service}
+
+📝 Issue:
+${v.issue}
+
+📍 Pickup Address:
+${v.address}
+`;
+
+  const whatsappNumber = "919246455535";
+
+  const whatsappUrl =
+    `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+  window.open(whatsappUrl, "_blank");
+
+  toast.success("Redirecting to WhatsApp...");
+  reset();
+};
 
   return (
     <>
@@ -61,26 +98,113 @@ function Contact() {
           </div>
 
           <Reveal delay={0.15}>
-            <form onSubmit={handleSubmit(onSubmit)} className="lg:col-span-7 glass-strong rounded-3xl p-6 md:p-10 space-y-5">
-              <h2 className="text-2xl font-bold">Send us a message</h2>
-              <div className="grid sm:grid-cols-2 gap-4">
-                <Field label="Your name" error={errors.name?.message}>
-                  <input {...register("name", { required: "Name is required" })} className={inputClass} placeholder="Your full name" />
-                </Field>
-                <Field label="Phone" error={errors.phone?.message}>
-                  <input {...register("phone", { required: "Phone is required" })} className={inputClass} placeholder="07X XXX XXXX" />
-                </Field>
-              </div>
-              <Field label="Email" error={errors.email?.message}>
-                <input {...register("email", { required: "Email is required", pattern: { value: /.+@.+\..+/, message: "Invalid email" } })} className={inputClass} placeholder="you@example.com" />
-              </Field>
-              <Field label="Message" error={errors.message?.message}>
-                <textarea rows={5} {...register("message", { required: "Message is required" })} className={inputClass + " resize-none"} placeholder="Tell us about your TV or your question…" />
-              </Field>
-              <button disabled={isSubmitting} className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[color:var(--ember)] to-[color:var(--ember-glow)] px-6 py-3 text-sm font-semibold text-[color:var(--primary-foreground)] glow-ember disabled:opacity-60">
-                {isSubmitting ? "Sending…" : (<>Send message <Send className="size-4" /></>)}
-              </button>
-            </form>
+            <form
+  onSubmit={handleSubmit(onSubmit)}
+  className="lg:col-span-7 glass-strong rounded-3xl p-6 md:p-10 space-y-5"
+>
+  <h2 className="text-2xl font-bold">
+    Request TV Service
+  </h2>
+
+  <div className="grid sm:grid-cols-2 gap-4">
+    <Field label="Full Name" error={errors.name?.message}>
+      <input
+        {...register("name", { required: "Required" })}
+        className={inputClass}
+      />
+    </Field>
+
+    <Field label="Phone" error={errors.phone?.message}>
+      <input
+        {...register("phone", { required: "Required" })}
+        className={inputClass}
+        placeholder="07X XXX XXXX"
+      />
+    </Field>
+  </div>
+
+  <Field label="Email">
+    <input
+      {...register("email")}
+      className={inputClass}
+      placeholder="optional"
+    />
+  </Field>
+
+  <div className="grid sm:grid-cols-2 gap-4">
+    <Field label="TV Brand" error={errors.brand?.message}>
+      <select
+        {...register("brand", { required: "Required" })}
+        className={`${inputClass} text-foreground bg-background`}
+      >
+        <option value="">Select Brand</option>
+        {BRANDS.map((b) => (
+          <option key={b} value={b}>
+            {b}
+          </option>
+        ))}
+      </select>
+    </Field>
+
+    <Field label="Model / Size">
+      <input
+        {...register("model")}
+        className={inputClass}
+        placeholder='e.g. 55" QLED Q70A'
+      />
+    </Field>
+  </div>
+
+  <Field label="Service Type" error={errors.service?.message}>
+    <select
+      {...register("service", { required: "Required" })}
+      className={`${inputClass} text-foreground bg-background`}
+    >
+      <option value="">Select Service</option>
+      <option value="Repair">Repair</option>
+      <option value="Spare Parts">Spare Parts</option>
+      <option value="Wall Mounting">Wall Mounting</option>
+      <option value="New TV Purchase Advice">
+        New TV Purchase Advice
+      </option>
+      <option value="Warranty Service">
+        Warranty Service
+      </option>
+      <option value="Other">Other</option>
+    </select>
+  </Field>
+
+  <Field label="Describe the Issue" error={errors.issue?.message}>
+    <textarea
+      rows={4}
+      {...register("issue", { required: "Required" })}
+      className={inputClass + " resize-none"}
+      placeholder="No display, lines on screen, won't turn on, etc."
+    />
+  </Field>
+
+  <Field label="Pickup Address" error={errors.address?.message}>
+    <input
+      {...register("address", { required: "Required" })}
+      className={inputClass}
+      placeholder="House no, street, city"
+    />
+  </Field>
+
+  <button
+    disabled={isSubmitting}
+    className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[color:var(--ember)] to-[color:var(--ember-glow)] px-6 py-3 text-sm font-semibold text-[color:var(--primary-foreground)] glow-ember"
+  >
+    {isSubmitting ? (
+      "Submitting..."
+    ) : (
+      <>
+        Submit Request
+        <Send className="size-4" />
+      </>
+    )}
+  </button>
+</form>
           </Reveal>
         </div>
       </section>

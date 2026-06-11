@@ -18,7 +18,7 @@ const ALL = [
   { icon: CircuitBoard, title: "Spare Parts", desc: "OEM-grade boards, panels, LED strips and accessories in stock." },
   { icon: Tv, title: "New TV Sales", desc: "Latest OLED, QLED, 4K and 8K models from authorised brands." },
   { icon: ShieldCheck, title: "Warranty Service", desc: "Authorised after-sales service for major brand warranties." },
-  { icon: Truck, title: "Doorstep Pickup", desc: "Free island-wide pickup and delivery on qualifying repairs." },
+  { icon: Truck, title: "Doorstep Pickup", desc: "Pickup and delivery on qualifying repairs located in Nizamabad." },
   { icon: Settings, title: "Wall Mounting", desc: "Professional wall mounting with concealed cable routing." },
   { icon: Cpu, title: "Smart TV Setup", desc: "App configuration, voice assistants and home network tuning." },
   { icon: Zap, title: "Power Issues", desc: "Standby light flickers, no power, sudden shut-offs — diagnosed and resolved." },

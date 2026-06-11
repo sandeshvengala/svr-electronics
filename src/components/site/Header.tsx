@@ -73,25 +73,25 @@ export function Header() {
 
           <div className="flex items-center gap-2">
             <button
-              onClick={() => setDark((v) => !v)}
-              aria-label="Toggle theme"
-              className="hidden sm:inline-flex items-center justify-center size-9 rounded-lg glass hover:bg-[color:var(--ember)]/10 transition"
-            >
-              {dark ? <Sun className="size-4" /> : <Moon className="size-4" />}
-            </button>
+  onClick={() => setDark((v) => !v)}
+  aria-label="Toggle theme"
+  className="inline-flex items-center justify-center size-9 rounded-lg glass hover:bg-[color:var(--ember)]/10 transition"
+>
+  {dark ? <Sun className="size-4" /> : <Moon className="size-4" />}
+</button>
             <a
               href={SITE.phoneHref}
               className="hidden md:inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[color:var(--ember)] to-[color:var(--ember-glow)] px-4 py-2 text-sm font-semibold text-[color:var(--primary-foreground)] glow-ember hover:brightness-110 transition"
             >
               <Phone className="size-4" /> Call Now
             </a>
-            <button
+            {/* <button
               className="lg:hidden inline-flex size-9 items-center justify-center rounded-lg glass"
               onClick={() => setOpen((v) => !v)}
               aria-label="Menu"
             >
               {open ? <X className="size-5" /> : <Menu className="size-5" />}
-            </button>
+            </button> */}
           </div>
         </div>
 

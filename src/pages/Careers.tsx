@@ -4,10 +4,10 @@ import { Briefcase, MapPin } from "lucide-react";
 
 
 const ROLES = [
-  { title: "Senior TV Technician", location: "Colombo", type: "Full-time" },
-  { title: "Apprentice Technician", location: "Colombo", type: "Full-time" },
-  { title: "Customer Service Associate", location: "Colombo", type: "Full-time" },
-  { title: "Logistics & Pickup Driver", location: "Western Province", type: "Full-time" },
+  { title: "Senior TV Technician", location: "Nizamabad", type: "Full-time" },
+  { title: "Apprentice Technician", location: "Nizamabad", type: "Full-time" },
+  { title: "Customer Service Associate", location: "Nizamabad", type: "Full-time" },
+  { title: "Logistics & Pickup Driver", location: "Nizamabad", type: "Full-time" },
 ];
 
 function Careers() {
@@ -30,13 +30,13 @@ function Careers() {
                     </div>
                   </div>
                 </div>
-                <a href="mailto:careers@svrelectronics.com" className="rounded-xl bg-gradient-to-r from-[color:var(--ember)] to-[color:var(--ember-glow)] px-5 py-2.5 text-sm font-semibold text-[color:var(--primary-foreground)]">Apply</a>
+                <a href="mailto:svrelectronics.com@gmail.com" className="rounded-xl bg-gradient-to-r from-[color:var(--ember)] to-[color:var(--ember-glow)] px-5 py-2.5 text-sm font-semibold text-[color:var(--primary-foreground)]">Apply</a>
               </div>
             </Reveal>
           ))}
         </div>
         <Reveal>
-          <p className="mt-10 text-sm text-muted-foreground">Don't see your role? Email <a className="text-[color:var(--ember)]" href="mailto:careers@svrelectronics.com">careers@svrelectronics.com</a> — we read every CV.</p>
+          <p className="mt-10 text-sm text-muted-foreground">Don't see your role? Email <a className="text-[color:var(--ember)]" href="mailto:svrelectronics.com@gmail.com">svrelectronics.com</a> — we read every CV.</p>
         </Reveal>
       </section>
     </>

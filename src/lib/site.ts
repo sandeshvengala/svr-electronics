@@ -37,6 +37,5 @@ export const NAV = [
 ] as const;
 
 export const BRANDS = [
-  "Amazon", "Flipkart", "ResQ", "Ekranfix", "Jeeves", "Samsung", "Sony", "LG", "Panasonic", "Toshiba", "Philips",
-  "TCL",
+  "Samsung", "Sony", "LG", "Panasonic", "Toshiba", "Philips", "TCL", "MI", "Oneplus", "Kodak", "Acer", "Motorola", "Relame"
 ];

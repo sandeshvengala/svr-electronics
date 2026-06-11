@@ -10,7 +10,7 @@ import { BRANDS } from "@/lib/site";
   head: () => ({
     meta: [
       { title: "Request a Service — Book TV Repair | SVR Electronics" },
-      { name: "description", content: "Book a free pickup and diagnosis. Fill in the form and our team will be in touch within hours." },
+      { name: "description", content: "Book a pickup and diagnosis. Fill in the form and our team will be in touch within hours." },
     ],
     links: [{ rel: "canonical", href: "/request-service" }],
   }),
@@ -65,7 +65,7 @@ ${v.address}
 
   return (
     <>
-      <PageHero eyebrow="Request service" title="Book a free pickup in 20 minutes." subtitle="Tell us about your television and we'll arrange a complimentary pickup, diagnosis and quote." />
+      <PageHero eyebrow="Request service" title="Book a slot." subtitle="Tell us about your television and we'll arrange a complimentary pickup, diagnosis and quote." />
       <section className="container-x py-12">
         <Reveal>
           <form onSubmit={handleSubmit(onSubmit)} className="glass-strong rounded-3xl p-6 md:p-10 max-w-3xl mx-auto space-y-5">

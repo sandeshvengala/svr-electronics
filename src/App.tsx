@@ -15,6 +15,7 @@ import Contact from "./pages/Contact";
 import RequestService from "./pages/RequestService";
 import Testimonials from "./pages/Testimonials";
 import FAQ from "./pages/FAQ";
+import Brands from "./pages/Brands";
 import Careers from "./pages/Careers";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
@@ -38,6 +39,7 @@ export default function App() {
         <Route path="/request-service" element={<RequestService />} />
         <Route path="/testimonials" element={<Testimonials />} />
         <Route path="/faq" element={<FAQ />} />
+        <Route path="/brands" element={<Brands />} />
         <Route path="/careers" element={<Careers />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/terms" element={<Terms />} />

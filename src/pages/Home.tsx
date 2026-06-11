@@ -17,6 +17,7 @@ function Home() {
   return (
     <>
       <Hero />
+      <Partners />
       <Intro />
       <Services />
       <Brands />
@@ -61,7 +62,7 @@ function Hero() {
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8, duration: 0.7 }}
             className="mt-6 text-lg text-muted-foreground max-w-xl leading-relaxed"
           >
-            Expert repairs, certified spare parts and the latest televisions — all from one premium electronics partner. Same-day diagnostics. 30-day workmanship warranty.
+            Expert repairs, certified spare parts and the latest televisions — all from one premium electronics partner. Same-day diagnostics. 
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.95, duration: 0.6 }}
@@ -73,9 +74,12 @@ function Hero() {
             >
               Request a service <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
             </Link>
-            <a href={SITE.whatsappHref} className="inline-flex items-center gap-2 rounded-xl glass-strong px-6 py-3.5 text-sm font-semibold hover:bg-[color:var(--ember)]/10 transition">
-              <MessageSquare className="size-4" /> WhatsApp us
-            </a>
+            <Link
+  to="/contact"
+  className="inline-flex items-center gap-2 rounded-xl glass-strong px-6 py-3.5 text-sm font-semibold hover:bg-[color:var(--ember)]/10 transition"
+>
+  <MessageSquare className="size-4" /> Contact Us
+</Link>
           </motion.div>
           <motion.div
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2 }}
@@ -174,6 +178,74 @@ function Intro() {
   );
 }
 
+
+function Partners() {
+  const partners = [
+    "Amazon",
+    "Flipkart",
+    "ResQ",
+    "EkranFix",
+    "Jeeves",
+    "Amazon",
+    "Flipkart",
+    "ResQ",
+    "EkranFix",
+    "Jeeves",
+  ];
+
+  return (
+    <section className="py-24 md:py-32 border-y border-border/60 bg-[color:var(--card)]/30">
+      <div className="container-x">
+        <Reveal>
+          <div className="text-center">
+            <span className="text-xs uppercase tracking-[0.2em] text-[color:var(--ember)]">
+              Trusted Partners
+            </span>
+
+            <h2 className="mt-3 text-3xl md:text-5xl font-bold tracking-tight">
+              Official Service Partner Network
+            </h2>
+
+            <p className="mt-4 max-w-2xl mx-auto text-muted-foreground">
+              Proudly associated with India's leading electronics retailers,
+              e-commerce platforms and service providers.
+            </p>
+          </div>
+        </Reveal>
+
+        <div
+          className="relative mt-12 overflow-hidden"
+          style={{
+            maskImage:
+              "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+          }}
+        >
+          <div
+            className="flex gap-5 animate-marquee w-max"
+            style={{ animationDuration: "25s" }}
+          >
+            {partners.map((partner, i) => (
+              <div
+                key={i}
+                className="shrink-0 glass-strong rounded-2xl px-10 py-6 min-w-[220px] text-center hover:bg-[color:var(--ember)]/10 transition-all duration-300"
+              >
+                <h3 className="font-display text-xl font-bold">
+                  {partner}
+                </h3>
+
+                <p className="mt-1 text-xs text-muted-foreground">
+                  Authorized Partner
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
 const SERVICES = [
   { icon: Wrench, title: "TV Repairs", desc: "Panel, board, backlight and software repairs for every brand and model.", to: "/repairs" },
   { icon: CircuitBoard, title: "Genuine Spare Parts", desc: "OEM-grade boards, panels, LED strips and accessories in stock.", to: "/parts" },
@@ -224,24 +296,56 @@ function Services() {
 }
 
 function Brands() {
-  const row = [...BRANDS, ...BRANDS];
+  const brands = [
+    "Samsung",
+    "LG",
+    "Sony",
+    "Mi",
+    "OnePlus",
+    "TCL",
+    "Panasonic",
+    "Kodak",
+    "Acer",
+    "Motorola",
+    "Realme",
+  ];
+
+  const row = [...brands, ...brands];
+
   return (
     <section className="py-24 md:py-32 border-y border-border/60 bg-[color:var(--card)]/30">
       <div className="container-x">
         <Reveal>
           <div className="text-center">
-            <span className="text-xs uppercase tracking-[0.2em] text-[color:var(--ember)]">Supported brands</span>
-            <h2 className="mt-3 text-3xl md:text-5xl font-bold tracking-tight">Every major brand. One trusted partner.</h2>
+            <span className="text-xs uppercase tracking-[0.2em] text-[color:var(--ember)]">
+               Trusted TV Repair Across Leading Brands
+            </span>
+
+            <h2 className="mt-3 text-3xl md:text-5xl font-bold tracking-tight">
+              We Repair All Leading Television Brands
+            </h2>
+
+            <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
+              From LED and Smart TVs to OLED and QLED models, our technicians
+              are experienced with every major television manufacturer.
+            </p>
           </div>
         </Reveal>
-        <div className="relative mt-12 overflow-hidden" style={{ maskImage: "linear-gradient(to right, transparent, black 8%, black 92%, transparent)" }}>
+
+        <div
+          className="relative mt-12 overflow-hidden"
+          style={{
+            maskImage:
+              "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+          }}
+        >
           <div className="flex gap-3 animate-marquee w-max">
-            {row.map((b, i) => (
+            {row.map((brand, i) => (
               <div
                 key={i}
-                className="shrink-0 glass rounded-2xl px-7 py-5 min-w-[180px] text-center font-display font-semibold text-lg hover:bg-[color:var(--ember)]/10 hover:text-[color:var(--ember)] transition cursor-default"
+                className="shrink-0 glass rounded-2xl px-7 py-5 min-w-[180px] text-center font-display font-semibold text-lg hover:bg-[color:var(--ember)]/10 hover:text-[color:var(--ember)] transition"
               >
-                {b}
+                {brand}
               </div>
             ))}
           </div>
@@ -253,7 +357,7 @@ function Brands() {
 
 const STEPS = [
   { n: "01", title: "Book", desc: "Tell us the issue via form, call or WhatsApp." },
-  { n: "02", title: "Diagnose", desc: "Free pickup and complete fault diagnosis." },
+  { n: "02", title: "Diagnose", desc: "Book a slot and complete fault diagnosis." },
   { n: "03", title: "Repair", desc: "Transparent quote, genuine parts, master technicians." },
   { n: "04", title: "Deliver", desc: "Quality-tested, warrantied and delivered to your door." },
 ];
@@ -291,12 +395,60 @@ function Process() {
 }
 
 const REVIEWS = [
-  { name: "Nimal Perera", role: "Colombo 04", text: "My Sony 65\" OLED came back like new in two days. Genuinely impressed by the professionalism.", rating: 5 },
-  { name: "Ayesha F.", role: "Nugegoda", text: "Honest pricing, no upselling, and the technician explained exactly what was wrong. Highly recommended.", rating: 5 },
-  { name: "Roshan Silva", role: "Kandy", text: "Bought a new 55\" Samsung from them and got free wall mounting. Service is on another level.", rating: 5 },
-  { name: "Dilani Wijesinghe", role: "Mt Lavinia", text: "Same-day pickup, repaired the backlight, delivered next morning. Brilliant team.", rating: 5 },
-  { name: "Kasun Bandara", role: "Maharagama", text: "I've used them three times across different TVs. Quality has never dropped.", rating: 5 },
-  { name: "Tharindu R.", role: "Dehiwala", text: "Best place in the city for genuine spare parts. Saved me from buying a new TV.", rating: 5 },
+  {
+    name: "Nithin",
+    role: "Nizamabad",
+    text: "My Sony 65\" OLED came back like new in two days. Genuinely impressed by the professionalism.",
+    rating: 5,
+  },
+  {
+    name: "Umesh",
+    role: "Armoor",
+    text: "Honest pricing, no upselling, and the technician explained exactly what was wrong. Highly recommended.",
+    rating: 5,
+  },
+  {
+    name: "Rohan",
+    role: "Kamareddy",
+    text: "Bought a new 55\" Samsung from them and got free wall mounting. Service is on another level.",
+    rating: 4,
+  },
+  {
+    name: "Dileep",
+    role: "Basara",
+    text: "Same-day pickup, repaired the backlight, delivered next morning. Brilliant team.",
+    rating: 5,
+  },
+  {
+    name: "Karunakar",
+    role: "Karimnagar",
+    text: "I've used them three times across different TVs. Quality has never dropped.",
+    rating: 4,
+  },
+  {
+    name: "Tharun",
+    role: "Nizamabad",
+    text: "Best place in the city for genuine spare parts. Saved me from buying a new TV.",
+    rating: 3.9,
+  },
+  {
+    name: "Maneesh",
+    role: "Nizamabad",
+    text: "The technician was punctual, polite and very knowledgeable. Will definitely recommend.",
+    rating: 4,
+  },
+  {
+    name: "Suresh",
+    role: "Nizamabad",
+    text: "Got my old Panasonic plasma back to life. They actually found the parts!",
+    rating: 4,
+  },
+  {
+    name: "Hari",
+    role: "Nirmal",
+    text: "Smooth booking, transparent quote, fast delivery. Couldn't have asked for more.",
+    rating: 5,
+  },
 ];
 
 function Reviews() {
@@ -306,7 +458,7 @@ function Reviews() {
       <Reveal>
         <div className="container-x text-center max-w-2xl mx-auto">
           <span className="text-xs uppercase tracking-[0.2em] text-[color:var(--ember)]">Customer reviews</span>
-          <h2 className="mt-3 text-3xl md:text-5xl font-bold tracking-tight">Loved by thousands across the island.</h2>
+          <h2 className="mt-3 text-3xl md:text-5xl font-bold tracking-tight">Loved by thousands across Telangana.</h2>
         </div>
       </Reveal>
       <div className="relative mt-12 overflow-hidden" style={{ maskImage: "linear-gradient(to right, transparent, black 6%, black 94%, transparent)" }}>
@@ -379,7 +531,7 @@ function CTA() {
               <h2 className="text-3xl md:text-5xl font-bold tracking-tight leading-tight">
                 Ready to bring your <span className="text-gradient-ember">picture back to life?</span>
               </h2>
-              <p className="mt-4 text-muted-foreground max-w-lg">Book a free pickup today. Our master technicians will diagnose, quote and repair — with no obligation.</p>
+              <p className="mt-4 text-muted-foreground max-w-lg">Book a slot today. Our master technicians will diagnose, quote and repair — with no obligation.</p>
             </div>
             <div className="flex flex-col sm:flex-row gap-3 lg:justify-end">
               <Link to="/request-service" className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[color:var(--ember)] to-[color:var(--ember-glow)] px-7 py-4 text-sm font-semibold text-[color:var(--primary-foreground)] glow-ember">
@@ -387,6 +539,9 @@ function CTA() {
               </Link>
               <a href={SITE.phoneHref} className="inline-flex items-center justify-center gap-2 rounded-xl glass px-7 py-4 text-sm font-semibold hover:bg-[color:var(--ember)]/10">
                 <Phone className="size-4" /> {SITE.phone}
+              </a>
+              <a href={SITE.phoneHref1} className="inline-flex items-center justify-center gap-2 rounded-xl glass px-7 py-4 text-sm font-semibold hover:bg-[color:var(--ember)]/10">
+                <Phone className="size-4" /> {SITE.phone1}
               </a>
             </div>
           </div>
