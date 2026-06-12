@@ -2,8 +2,21 @@ import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import {
-  Wrench, ShieldCheck, Tv, Cpu, Zap, Clock, Star, ArrowRight,
-  CircuitBoard, Sparkles, Phone, MessageSquare, CheckCircle2,
+  Cpu,
+  CircuitBoard,
+  Wrench,
+  Tv,
+  ShieldCheck,
+  Zap,
+  Clock,
+  Star,
+  ArrowRight,
+  Sparkles,
+  Phone,
+  MessageSquare,
+  CheckCircle2,
+  MonitorSmartphone,
+  Microscope,
 } from "lucide-react";
 import heroTv from "@/assets/hero-tv.jpg";
 import workshop from "@/assets/workshop.jpg";
@@ -17,8 +30,9 @@ function Home() {
   return (
     <>
       <Hero />
-      <Partners />
+      {/* <Partners /> */}
       <Intro />
+      <AdvancedLab />
       <Services />
       <Brands />
       <Process />
@@ -131,7 +145,7 @@ function Hero() {
 function Intro() {
   const stats = [
     { value: 25000, suffix: "+", label: "TVs repaired" },
-    { value: 10, suffix: "+", label: "Brands supported" },
+    { value: 10, suffix: "+", label: "Trusted Partners" },
     { value: 24, suffix: "h", label: "Average turnaround" },
     { value: 98, suffix: "%", label: "Customer satisfaction" },
   ];
@@ -179,72 +193,151 @@ function Intro() {
 }
 
 
-function Partners() {
-  const partners = [
-    "Amazon",
-    "Flipkart",
-    "ResQ",
-    "EkranFix",
-    "Jeeves",
-    "Amazon",
-    "Flipkart",
-    "ResQ",
-    "EkranFix",
-    "Jeeves",
+// function Partners() {
+//   const partners = [
+//     "Amazon",
+//     "Flipkart",
+//     "ResQ",
+//     "EkranFix",
+//     "Jeeves",
+//     "Amazon",
+//     "Flipkart",
+//     "ResQ",
+//     "EkranFix",
+//     "Jeeves",
+//   ];
+
+//   return (
+//     <section className="py-24 md:py-32 border-y border-border/60 bg-[color:var(--card)]/30">
+//       <div className="container-x">
+//         <Reveal>
+//           <div className="text-center">
+//             <span className="text-xs uppercase tracking-[0.2em] text-[color:var(--ember)]">
+//               Trusted Partners
+//             </span>
+
+//             <h2 className="mt-3 text-3xl md:text-5xl font-bold tracking-tight">
+//               Official Service Partner Network
+//             </h2>
+
+//             <p className="mt-4 max-w-2xl mx-auto text-muted-foreground">
+//               Proudly associated with India's leading electronics retailers,
+//               e-commerce platforms and service providers.
+//             </p>
+//           </div>
+//         </Reveal>
+
+//         <div
+//           className="relative mt-1 overflow-hidden"
+//           style={{
+//             maskImage:
+//               "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+//           }}
+//         >
+//           <div
+//             className="flex gap-5 animate-marquee w-max"
+//             style={{ animationDuration: "25s" }}
+//           >
+//             {partners.map((partner, i) => (
+//               <div
+//                 key={i}
+//                 className="shrink-0 glass-strong rounded-2xl px-10 py-6 min-w-[220px] text-center hover:bg-[color:var(--ember)]/10 transition-all duration-300"
+//               >
+//                 <h3 className="font-display text-xl font-bold">
+//                   {partner}
+//                 </h3>
+
+//                 <p className="mt-12 text-xs text-muted-foreground">
+//                   Authorized Partner
+//                 </p>
+//               </div>
+//             ))}
+//           </div>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
+
+
+function AdvancedLab() {
+  const features = [
+    {
+      icon: MonitorSmartphone,
+      title: "Bonding Machine Technology",
+      desc: "Advanced COF/TAB bonding machine solutions for display line issues, panel faults and screen restoration.",
+    },
+    {
+      icon: CircuitBoard,
+      title: "Chip Level Repair",
+      desc: "Motherboard and power supply repairs using professional diagnostic tools and precision soldering stations.",
+    },
+    {
+      icon: Microscope,
+      title: "LED Backlight Testing",
+      desc: "Accurate backlight analysis and replacement using dedicated LED strip testing equipment.",
+    },
+    {
+      icon: Cpu,
+      title: "Smart TV Software Solutions",
+      desc: "Android TV, Google TV, WebOS and Tizen software installation, updates and troubleshooting.",
+    },
   ];
 
   return (
-    <section className="py-24 md:py-32 border-y border-border/60 bg-[color:var(--card)]/30">
-      <div className="container-x">
-        <Reveal>
-          <div className="text-center">
-            <span className="text-xs uppercase tracking-[0.2em] text-[color:var(--ember)]">
-              Trusted Partners
-            </span>
+    <section className="container-x py-24 md:py-32">
+      <Reveal>
+        <div className="text-center max-w-3xl mx-auto">
+          <span className="text-xs uppercase tracking-[0.2em] text-[color:var(--ember)]">
+            Advanced Technology
+          </span>
 
-            <h2 className="mt-3 text-3xl md:text-5xl font-bold tracking-tight">
-              Official Service Partner Network
-            </h2>
+          <h2 className="mt-3 text-3xl md:text-5xl font-bold tracking-tight">
+            Advanced Repair Laboratory
+          </h2>
 
-            <p className="mt-4 max-w-2xl mx-auto text-muted-foreground">
-              Proudly associated with India's leading electronics retailers,
-              e-commerce platforms and service providers.
-            </p>
-          </div>
-        </Reveal>
-
-        <div
-          className="relative mt-12 overflow-hidden"
-          style={{
-            maskImage:
-              "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
-          }}
-        >
-          <div
-            className="flex gap-5 animate-marquee w-max"
-            style={{ animationDuration: "25s" }}
-          >
-            {partners.map((partner, i) => (
-              <div
-                key={i}
-                className="shrink-0 glass-strong rounded-2xl px-10 py-6 min-w-[220px] text-center hover:bg-[color:var(--ember)]/10 transition-all duration-300"
-              >
-                <h3 className="font-display text-xl font-bold">
-                  {partner}
-                </h3>
-
-                <p className="mt-1 text-xs text-muted-foreground">
-                  Authorized Partner
-                </p>
-              </div>
-            ))}
-          </div>
+          <p className="mt-4 text-muted-foreground">
+            Equipped with modern diagnostic systems, bonding machines and
+            precision repair equipment for advanced television servicing.
+          </p>
         </div>
+      </Reveal>
+
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mt-12">
+        {features.map((item, index) => (
+          <Reveal key={item.title} delay={index * 0.1}>
+            <div className="glass rounded-2xl p-6 h-full hover:bg-[color:var(--card)] transition-all">
+              <div className="inline-flex size-12 items-center justify-center rounded-xl bg-gradient-to-br from-[color:var(--ember)] to-[color:var(--ember-glow)] text-white">
+                <item.icon className="size-5" />
+              </div>
+
+              <h3 className="mt-4 text-lg font-semibold">
+                {item.title}
+              </h3>
+
+              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                {item.desc}
+              </p>
+            </div>
+          </Reveal>
+        ))}
+      </div>
+
+      <div className="mt-10 glass-strong rounded-3xl p-8 text-center">
+        <h3 className="text-2xl font-bold">
+          Specialized Bonding Machine Services
+        </h3>
+
+        <p className="mt-3 text-muted-foreground max-w-3xl mx-auto">
+          SVR Electronics is equipped with advanced bonding machine technology
+          for repairing display line issues, panel faults, screen flickering,
+          dead lines and COF-related display problems that many repair centers
+          cannot handle.
+        </p>
       </div>
     </section>
   );
 }
-
 
 const SERVICES = [
   { icon: Wrench, title: "TV Repairs", desc: "Panel, board, backlight and software repairs for every brand and model.", to: "/repairs" },

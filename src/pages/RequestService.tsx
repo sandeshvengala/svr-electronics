@@ -65,7 +65,7 @@ ${v.address}
 
   return (
     <>
-      <PageHero eyebrow="Request service" title="Book a slot." subtitle="Tell us about your television and we'll arrange a complimentary pickup, diagnosis and quote." />
+      <PageHero eyebrow="Tell us about your television issue and our experts will provide a quick diagnosis, service recommendation, and transparent quote." />
       <section className="container-x py-12">
         <Reveal>
           <form onSubmit={handleSubmit(onSubmit)} className="glass-strong rounded-3xl p-6 md:p-10 max-w-3xl mx-auto space-y-5">
@@ -85,7 +85,7 @@ ${v.address}
               </Field>
               <Field label="Model / size"><input {...register("model")} className={inputClass} placeholder={`e.g. 55" QLED Q70A`} /></Field>
             </div>
-            <Field label="Service type" error={errors.service?.message}>
+            {/* <Field label="Service type" error={errors.service?.message}>
               <select {...register("service", { required: "Required" })}
                 className={`${inputClass} text-foreground bg-background`}>
                 <option value="">Select service</option>
@@ -96,7 +96,7 @@ ${v.address}
                 <option value="Warranty service">Warranty service</option>
                 <option value="Other">Other</option>
               </select>
-            </Field>
+            </Field> */}
             <Field label="Describe the issue" error={errors.issue?.message}>
               <textarea rows={4} {...register("issue", { required: "Required" })} className={inputClass + " resize-none"} placeholder="No display, lines on screen, won't turn on, etc." />
             </Field>

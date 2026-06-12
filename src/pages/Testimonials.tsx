@@ -34,13 +34,13 @@ const REVIEWS = [
   },
   {
     name: "Tharun",
-    role: "Nizamabad",
+    role: "Jagtial",
     text: "Best place in the city for genuine spare parts. Saved me from buying a new TV.",
     rating: 3.9,
   },
   {
     name: "Maneesh",
-    role: "Nizamabad",
+    role: "Dichpally",
     text: "The technician was punctual, polite and very knowledgeable. Will definitely recommend.",
     rating: 4,
   },
