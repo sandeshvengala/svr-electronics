@@ -44,7 +44,7 @@ function Contact() {
 
 📏 Model / Size: ${v.model || "Not Provided"}
 
-// 🛠 Service Type: ${v.service}
+
 
 📝 Issue:
 ${v.issue}
