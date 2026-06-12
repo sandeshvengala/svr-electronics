@@ -24,7 +24,7 @@ type FormVals = {
   brand: string;
   model: string;
   issue: string;
-  service: string;
+  // service: string;
   address: string;
 };
 
@@ -44,7 +44,7 @@ function Contact() {
 
 📏 Model / Size: ${v.model || "Not Provided"}
 
-🛠 Service Type: ${v.service}
+// 🛠 Service Type: ${v.service}
 
 📝 Issue:
 ${v.issue}
@@ -155,7 +155,7 @@ ${v.address}
     </Field>
   </div>
 
-  <Field label="Service Type" error={errors.service?.message}>
+  {/* <Field label="Service Type" error={errors.service?.message}>
     <select
       {...register("service", { required: "Required" })}
       className={`${inputClass} text-foreground bg-background`}
@@ -172,7 +172,7 @@ ${v.address}
       </option>
       <option value="Other">Other</option>
     </select>
-  </Field>
+  </Field> */}
 
   <Field label="Describe the Issue" error={errors.issue?.message}>
     <textarea

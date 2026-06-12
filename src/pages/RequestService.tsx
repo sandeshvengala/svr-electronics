@@ -39,7 +39,7 @@ function RequestService() {
 
 📏 Model / Size: ${v.model || "Not Provided"}
 
-🛠 Service Type: ${v.service}
+// 🛠 Service Type: ${v.service}
 
 📝 Issue:
 ${v.issue}
@@ -65,7 +65,11 @@ ${v.address}
 
   return (
     <>
-      <PageHero eyebrow="Tell us about your television issue and our experts will provide a quick diagnosis, service recommendation, and transparent quote." />
+      <PageHero
+  eyebrow="Request Service"
+  title="Book Your TV Service"
+  subtitle="Tell us about your television issue and our experts will provide a quick diagnosis, service recommendation, and transparent quote."
+/>
       <section className="container-x py-12">
         <Reveal>
           <form onSubmit={handleSubmit(onSubmit)} className="glass-strong rounded-3xl p-6 md:p-10 max-w-3xl mx-auto space-y-5">
