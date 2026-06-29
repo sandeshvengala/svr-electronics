@@ -454,12 +454,12 @@ function Brands() {
 }
 
 
-const STEPS = [
-  { n: "01", title: "Book", desc: "Tell us the issue via form, call or WhatsApp." },
-  { n: "02", title: "Diagnose", desc: "Book a slot and complete fault diagnosis." },
-  { n: "03", title: "Repair", desc: "Transparent quote, genuine parts, master technicians." },
-  { n: "04", title: "Deliver", desc: "Quality-tested, warrantied and delivered to your door." },
-];
+// const STEPS = [
+//   { n: "01", title: "Book", desc: "Tell us the issue via form, call or WhatsApp." },
+//   { n: "02", title: "Diagnose", desc: "Book a slot and complete fault diagnosis." },
+//   { n: "03", title: "Repair", desc: "Transparent quote, genuine parts, master technicians." },
+//   { n: "04", title: "Deliver", desc: "Quality-tested, warrantied and delivered to your door." },
+// ];
 
 // function Process() {
 //   return (
