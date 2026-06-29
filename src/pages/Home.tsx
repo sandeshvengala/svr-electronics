@@ -24,6 +24,7 @@ import parts from "@/assets/parts.jpg";
 import { AnimatedCounter } from "@/components/site/AnimatedCounter";
 import { Reveal } from "@/components/site/PageShell";
 import { SITE } from "@/lib/site";
+import AutoScrollCarousel from "@/components/AutoScrollCarousel";
 
 
 function Home() {
@@ -35,7 +36,7 @@ function Home() {
       <AdvancedLab />
       <Services />
       <Brands />
-      <Process />
+      {/* <Process /> */}
       <Reviews />
       <GalleryPreview />
       <CTA />
@@ -303,7 +304,7 @@ function AdvancedLab() {
         </div>
       </Reveal>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mt-12">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5 mt-12">
         {features.map((item, index) => (
           <Reveal key={item.title} delay={index * 0.1}>
             <div className="glass rounded-2xl p-6 h-full hover:bg-[color:var(--card)] transition-all">
@@ -358,7 +359,7 @@ function Services() {
           <p className="mt-4 text-muted-foreground">Six core services, one consistent standard — premium components, certified technicians, transparent pricing.</p>
         </div>
       </Reveal>
-      <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div className="mt-12 grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5">
         {SERVICES.map((s, i) => (
           <motion.div
             key={s.title}
@@ -401,9 +402,13 @@ function Brands() {
     "Acer",
     "Motorola",
     "Realme",
+    "Samsung",
+    "LG",
+    "Sony",
+    "Mi",
+    "OnePlus",
+    "TCL",
   ];
-
-  const row = [...brands, ...brands];
 
   return (
     <section className="py-24 md:py-32 border-y border-border/60 bg-[color:var(--card)]/30">
@@ -411,7 +416,7 @@ function Brands() {
         <Reveal>
           <div className="text-center">
             <span className="text-xs uppercase tracking-[0.2em] text-[color:var(--ember)]">
-               Trusted TV Repair Across Leading Brands
+              Trusted TV Repair Across Leading Brands
             </span>
 
             <h2 className="mt-3 text-3xl md:text-5xl font-bold tracking-tight">
@@ -426,14 +431,14 @@ function Brands() {
         </Reveal>
 
         <div
-          className="relative mt-12 overflow-hidden"
+          className="relative mt-12"
           style={{
             maskImage:
               "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
           }}
         >
-          <div className="flex gap-3 animate-marquee w-max">
-            {row.map((brand, i) => (
+          <AutoScrollCarousel speed={0.12}>
+            {brands.map((brand, i) => (
               <div
                 key={i}
                 className="shrink-0 glass rounded-2xl px-7 py-5 min-w-[180px] text-center font-display font-semibold text-lg hover:bg-[color:var(--ember)]/10 hover:text-[color:var(--ember)] transition"
@@ -441,12 +446,13 @@ function Brands() {
                 {brand}
               </div>
             ))}
-          </div>
+          </AutoScrollCarousel>
         </div>
       </div>
     </section>
   );
 }
+
 
 const STEPS = [
   { n: "01", title: "Book", desc: "Tell us the issue via form, call or WhatsApp." },
@@ -455,37 +461,37 @@ const STEPS = [
   { n: "04", title: "Deliver", desc: "Quality-tested, warrantied and delivered to your door." },
 ];
 
-function Process() {
-  return (
-    <section className="container-x py-24 md:py-32">
-      <Reveal>
-        <div className="max-w-2xl">
-          <span className="text-xs uppercase tracking-[0.2em] text-[color:var(--ember)]">How it works</span>
-          <h2 className="mt-3 text-3xl md:text-5xl font-bold tracking-tight">A repair process you can actually trust.</h2>
-        </div>
-      </Reveal>
-      <div className="relative mt-14 grid md:grid-cols-4 gap-5">
-        <div className="hidden md:block absolute top-9 left-[8%] right-[8%] h-px bg-gradient-to-r from-transparent via-[color:var(--ember)]/40 to-transparent" />
-        {STEPS.map((s, i) => (
-          <motion.div
-            key={s.n}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ delay: i * 0.12, duration: 0.6 }}
-            className="relative glass rounded-2xl p-6"
-          >
-            <div className="inline-flex size-14 items-center justify-center rounded-2xl bg-gradient-to-br from-[color:var(--ember)] to-[color:var(--ember-glow)] text-[color:var(--primary-foreground)] font-display font-bold text-lg glow-ember">
-              {s.n}
-            </div>
-            <h3 className="mt-4 text-lg font-semibold">{s.title}</h3>
-            <p className="mt-1.5 text-sm text-muted-foreground">{s.desc}</p>
-          </motion.div>
-        ))}
-      </div>
-    </section>
-  );
-}
+// function Process() {
+//   return (
+//     <section className="container-x py-24 md:py-32">
+//       <Reveal>
+//         <div className="max-w-2xl">
+//           <span className="text-xs uppercase tracking-[0.2em] text-[color:var(--ember)]">How it works</span>
+//           <h2 className="mt-3 text-3xl md:text-5xl font-bold tracking-tight">A repair process you can actually trust.</h2>
+//         </div>
+//       </Reveal>
+//       <div className="relative mt-14 grid md:grid-cols-4 gap-5">
+//         <div className="hidden md:block absolute top-9 left-[8%] right-[8%] h-px bg-gradient-to-r from-transparent via-[color:var(--ember)]/40 to-transparent" />
+//         {STEPS.map((s, i) => (
+//           <motion.div
+//             key={s.n}
+//             initial={{ opacity: 0, y: 40 }}
+//             whileInView={{ opacity: 1, y: 0 }}
+//             viewport={{ once: true, margin: "-60px" }}
+//             transition={{ delay: i * 0.12, duration: 0.6 }}
+//             className="relative glass rounded-2xl p-6"
+//           >
+//             <div className="inline-flex size-14 items-center justify-center rounded-2xl bg-gradient-to-br from-[color:var(--ember)] to-[color:var(--ember-glow)] text-[color:var(--primary-foreground)] font-display font-bold text-lg glow-ember">
+//               {s.n}
+//             </div>
+//             <h3 className="mt-4 text-lg font-semibold">{s.title}</h3>
+//             <p className="mt-1.5 text-sm text-muted-foreground">{s.desc}</p>
+//           </motion.div>
+//         ))}
+//       </div>
+//     </section>
+//   );
+// }
 
 const REVIEWS = [
   {
@@ -545,33 +551,60 @@ const REVIEWS = [
 ];
 
 function Reviews() {
-  const row = [...REVIEWS, ...REVIEWS];
   return (
     <section className="py-24 md:py-32 border-y border-border/60 bg-[color:var(--card)]/30">
       <Reveal>
         <div className="container-x text-center max-w-2xl mx-auto">
-          <span className="text-xs uppercase tracking-[0.2em] text-[color:var(--ember)]">Customer reviews</span>
-          <h2 className="mt-3 text-3xl md:text-5xl font-bold tracking-tight">Loved by thousands across Telangana.</h2>
+          <span className="text-xs uppercase tracking-[0.2em] text-[color:var(--ember)]">
+            Customer reviews
+          </span>
+
+          <h2 className="mt-3 text-3xl md:text-5xl font-bold tracking-tight">
+            Loved by thousands across Telangana.
+          </h2>
         </div>
       </Reveal>
-      <div className="relative mt-12 overflow-hidden" style={{ maskImage: "linear-gradient(to right, transparent, black 6%, black 94%, transparent)" }}>
-        <div className="flex gap-5 animate-marquee w-max" style={{ animationDuration: "55s" }}>
-          {row.map((r, i) => (
-            <div key={i} className="shrink-0 w-[340px] glass-strong rounded-2xl p-6">
+
+      <div
+        className="relative mt-12 overflow-hidden"
+        style={{
+          maskImage:
+            "linear-gradient(to right, transparent, black 6%, black 94%, transparent)",
+        }}
+      >
+        <AutoScrollCarousel speed={0.12}>
+          {REVIEWS.map((r, i) => (
+            <div
+              key={i}
+              className="shrink-0 w-[340px] glass-strong rounded-2xl p-6"
+            >
               <div className="flex gap-0.5 text-[color:var(--ember)]">
-                {Array.from({ length: r.rating }).map((_, j) => <Star key={j} className="size-4 fill-current" />)}
+                {Array.from({
+                  length: Math.floor(r.rating),
+                }).map((_, j) => (
+                  <Star key={j} className="size-4 fill-current" />
+                ))}
               </div>
-              <p className="mt-3 text-sm text-foreground/90 leading-relaxed">"{r.text}"</p>
+
+              <p className="mt-3 text-sm text-foreground/90 leading-relaxed">
+                "{r.text}"
+              </p>
+
               <div className="mt-4 flex items-center gap-3">
-                <div className="size-9 rounded-full bg-gradient-to-br from-[color:var(--ember)] to-[color:var(--ember-glow)] inline-flex items-center justify-center font-display font-bold text-[color:var(--primary-foreground)]">{r.name[0]}</div>
+                <div className="size-9 rounded-full bg-gradient-to-br from-[color:var(--ember)] to-[color:var(--ember-glow)] inline-flex items-center justify-center font-display font-bold text-[color:var(--primary-foreground)]">
+                  {r.name[0]}
+                </div>
+
                 <div>
                   <div className="text-sm font-semibold">{r.name}</div>
-                  <div className="text-xs text-muted-foreground">{r.role}</div>
+                  <div className="text-xs text-muted-foreground">
+                    {r.role}
+                  </div>
                 </div>
               </div>
             </div>
           ))}
-        </div>
+        </AutoScrollCarousel>
       </div>
     </section>
   );
